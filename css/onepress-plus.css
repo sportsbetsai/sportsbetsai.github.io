@@ -96,7 +96,7 @@
   z-index: 3;
   -o-object-fit: cover;
      object-fit: cover;
-  object-position: right
+  object-position: left;
 }
 
 .video-section.video-bg {
