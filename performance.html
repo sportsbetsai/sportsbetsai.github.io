@@ -119,42 +119,21 @@ body, body p {
 				<main id="main" class="site-main" role="main">
 
 					<div class="section-padding">
-						<div class="project-wrapper project-3-column">
-																<div class="project-item is-ajax" data-id="1202" >
-										<div class="project-content project-contents " data-id="1202">
-											<div class="project-thumb project-trigger">
-																							</div>
-											<div class="project-header project-trigger">
-												<h5 class="project-small-title">NFL Performance Graph</h5>
-												<div class="project-meta">(coming soon)</div>
-											</div>
-										</div>
-									</div>
-																		<div class="project-item is-ajax" data-id="1201" >
-										<div class="project-content project-contents " data-id="1201">
-											<div class="project-thumb project-trigger">
-																							</div>
-											<div class="project-header project-trigger">
-												<h5 class="project-small-title">NBA Performance Graph</h5>
-												<div class="project-meta">(coming soon)</div>
-											</div>
-										</div>
-									</div>
-																		<div class="project-item is-ajax" data-id="1200" >
-										<div class="project-content project-contents " data-id="1200">
-											<div class="project-thumb project-trigger">
-																							</div>
-											<div class="project-header project-trigger">
-												<h5 class="project-small-title">UFC Performance Graph</h5>
-												<div class="project-meta">(coming soon)</div>
-											</div>
-										</div>
-									</div>
-																<div class="clear"></div>
-						</div>
+						<div class="container">
+                                			<div class="section-title-area">
+                    						<h5 class="section-subtitle">Performance</h5>
+								<h2 class="section-title">UFC</h2>
+							</div>
+                                			<div class="row">
+								<div class="col-sm-6 col-lg-6">
+									<canvas id="eventProfits"></canvas>
+								</div>
+								<div class="col-sm-6 col-lg-6">
+									<canvas id="eventProfits"></canvas>
+								</div>
+							</div>
+            					</div>
 					</div>
-
-					
 				</main><!-- #main -->
 			</div><!-- #primary -->
 
@@ -176,6 +155,7 @@ body, body p {
     </div><!-- #page -->
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
 <script type='text/javascript' src='js/hoverintent-js.min.js?ver=2.2.1'></script>
 <script type='text/javascript' src='js/plugins.js?ver=2.2.4'></script>
 <script type='text/javascript' src='js/bootstrap.min.js?ver=2.2.4'></script>
@@ -202,5 +182,60 @@ body, body p {
 			}());
 		</script>
 	<!--<![endif]-->
+	
+	<script type="text/javascript">
+		  var x  = ['UFC1: asdfasdfasdfasdfasdfasdfasdf', 'UFC2: asdfasdfasdfasdfasdfasdfasdf', 'UFC3: asdfasdfasdfasdfasdfasdfasdf', 'UFC4: asdfasdfasdfasdfasdfasdfasdf', 'UFC5: asdfasdfasdfasdfasdfasdfasdf', 'UFC6: asdfasdfasdfasdfasdfasdfasdf'];
+		  var y1 = ['99.83', '99.86', '99.81', '99.83', '99.72', '99.75'];
+		  var y2 = ['56', '-41', '-53', '46', '70', '-60'];
+		  new Chart(document.getElementById('eventProfits').getContext('2d'), {
+		    type: 'bar',  // <-- define overall chart type
+		    data: {
+		      labels: x,
+		      datasets: [{
+			type:'line',
+			label: 'rolling 5 event average return',
+			fill:false,
+			backgroundColor: 'rgb(255, 99, 132)',
+			borderColor: 'rgb(255, 99, 132)',
+			data: y1,
+			yAxisID: 'left-axis'
+		      }, {
+			label: 'event return',
+			fill: true,
+			backgroundColor: 'rgb(54, 162, 235)',
+			borderColor: 'rgb(54, 162, 235)',
+			data: y2,
+			yAxisID: 'right-axis'
+		      }]
+		    },
+		    options: {
+		      legend: {position:'bottom', usePointStyle:true},
+		      maintainAspectRatio:false,
+		      responsive: true,
+		      title: {display: false},
+		      tooltips: {mode: 'index', intersect: false},
+		      hover: {mode: 'nearest', intersect: true},
+		      scales: {
+			xAxes: [{display: true, stacked:true, scaleLabel: {display: false, labelString: 'event'}}],
+			yAxes: [{
+			  type:'linear',
+			  id:'left-axis',
+			  display: true,
+			  position: 'left',
+			  scaleLabel: {display: true, labelString: '%'}
+			},{
+			  type:'linear',
+			  id:'right-axis',
+			  display: true,
+			  position: 'right',
+			  stacked:false,
+			  scaleLabel: {display: true, labelString: '#'},
+			  gridLines: {drawOnChartArea:false}
+			}]
+		      }
+		    }
+		  });
+	</script>
+	
 </body>
 </html>
