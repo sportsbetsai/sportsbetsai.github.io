@@ -270,24 +270,28 @@ body, body p {
 		    }
 		  });
 		
-		$("#0").click(function() {
-		    var eventProfitsData = eventProfits.config.data;
-		    eventProfitsData.datasets[0].data = y1;
-		    eventProfitsData.datasets[1].data = y2;
-		    var totalReturnsData = totalReturns.config.data;
-		    totalReturnsData.datasets[0].data = y3;
-		    eventProfits.update();
-		    totalReturns.update();
-		});
-		$("#1").click(function() {
-		    var eventProfitsData = eventProfits.config.data;
-		    eventProfitsData.datasets[0].data = y1_alt;
-		    eventProfitsData.datasets[1].data = y2_alt;
-		    var totalReturnsData = totalReturns.config.data;
-		    totalReturnsData.datasets[0].data = y3_alt;
-		    eventProfits.update();
-		    totalReturns.update();
-		});
+		(function($){
+			("#0").click(function() {
+			    var eventProfitsData = eventProfits.config.data;
+			    eventProfitsData.datasets[0].data = y1;
+			    eventProfitsData.datasets[1].data = y2;
+			    var totalReturnsData = totalReturns.config.data;
+			    totalReturnsData.datasets[0].data = y3;
+			    eventProfits.update();
+			    totalReturns.update();
+			})
+		})(jQuery);
+		(function($){
+			("#1").click(function() {
+			    var eventProfitsData = eventProfits.config.data;
+			    eventProfitsData.datasets[0].data = y1_alt;
+			    eventProfitsData.datasets[1].data = y2_alt;
+			    var totalReturnsData = totalReturns.config.data;
+			    totalReturnsData.datasets[0].data = y3_alt;
+			    eventProfits.update();
+			    totalReturns.update();
+			})
+		})(jQuery);
 	</script>
 	
 </body>
