@@ -125,9 +125,11 @@ body, body p {
 								<h2 class="section-title">UFC</h2>
 							</div>
                                 			<div class="row">
-								<div class="chart-container" style="position: relative; height:40vh">
+								<div class="chart-container" style="position: relative; width: 100%; height: 50%; min-height: 200px;">
 									<canvas id="eventProfits"></canvas>
 									<canvas id="totalReturns"></canvas>
+									<button id="0" type="button">Optimize Sharpe Ratio</button>
+									<button id="1" type="button">Optimize Returns : Downside Risk Ratio</button>
 								</div
 							</div>
             					</div>
@@ -186,7 +188,10 @@ body, body p {
 		var y1 = ['99.83', '99.86', '99.81', '99.83', '99.72', '99.75'];
 		var y2 = ['56', '-41', '-53', '46', '70', '-60'];
 		var y3 = ['10', '8', '16', '25', '70', '60'];
-		new Chart(document.getElementById('eventProfits').getContext('2d'), {
+		var y1_alt = ['50', '-20', '40', '30', '15', '20'];
+		var y2_alt = ['-56', '81', '-73', '6', '7', '60'];
+		var y3_alt = ['20', '-10', '10', '60', '150', '250'];
+		var eventProfits = new Chart(document.getElementById('eventProfits').getContext('2d'), {
 		    type: 'bar',  // <-- define overall chart type
 		    data: {
 		      labels: x,
@@ -234,7 +239,7 @@ body, body p {
 		      }
 		    }
 		  });
-		new Chart(document.getElementById('totalReturns').getContext('2d'), {
+		var totalReturns = new Chart(document.getElementById('totalReturns').getContext('2d'), {
 		    type: 'line',
 		    data: {
 		      labels: x,
@@ -264,6 +269,25 @@ body, body p {
 		      }
 		    }
 		  });
+		
+		$("#0").click(function() {
+		    var eventProfitsData = eventProfits.config.data;
+		    eventProfitsData.datasets[0].data = y1;
+		    eventProfitsData.datasets[1].data = y2;
+		    var totalReturnsData = totalReturns.config.data;
+		    totalReturnsData.datasets[0].data = y3;
+		    eventProfits.update();
+		    totalReturns.update();
+		});
+		$("#1").click(function() {
+		    var eventProfitsData = eventProfits.config.data;
+		    eventProfitsData.datasets[0].data = y1_alt;
+		    eventProfitsData.datasets[1].data = y2_alt;
+		    var totalReturnsData = totalReturns.config.data;
+		    totalReturnsData.datasets[0].data = y3_alt;
+		    eventProfits.update();
+		    totalReturns.update();
+		});
 	</script>
 	
 </body>
