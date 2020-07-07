@@ -235,7 +235,10 @@ body, body p {
 		      tooltips: {mode: 'index', intersect: false},
 		      hover: {mode: 'nearest', intersect: true},
 		      scales: {
-			xAxes: [{display: true, stacked:true, maxRotation: 90, minRotation: 90, scaleLabel: {display: false, labelString: 'event'}}],
+			xAxes: [{display: true,
+				 stacked:true,
+				 afterCalculateTickRotation : function (self) {self.labelRotation = 85;},
+				 scaleLabel: {display: false, labelString: 'event'}}],
 			yAxes: [{
 			  type:'linear',
 			  id:'left-axis',
@@ -278,9 +281,8 @@ body, body p {
 		      scales: {
 			xAxes: [{
 				display: true,
-				afterCalculateTickRotation : function (self) {
-					self.labelRotation = 90; //Or any other rotation of x-labels you need.
-				},
+				stacked:true,
+				afterCalculateTickRotation : function (self) {self.labelRotation = 85;},
 				scaleLabel: {display: false, labelString: 'event'}}],
 			yAxes: [{
 			  type:'linear',
