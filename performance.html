@@ -124,13 +124,15 @@ body, body p {
                     						<h5 class="section-subtitle">Performance</h5>
 								<h2 class="section-title">UFC</h2>
 							</div>
-                                			<div class="row" style="height: 1000px">
-								<div class="chart-container" style="position: relative; width: 100%; height: 40%; min-height: 200px; background-color: #f7f7f7">
+                                			<div class="row" style="height: 1000px; background-color: #f7f7f7">
+								<div class="chart-container" style="position: relative; width: 100%; height: 40%; min-height: 200px;">
 									<canvas id="eventProfits"></canvas>
-									<canvas id="totalReturns""></canvas>
-									<!-- <button id="0" type="button">Optimize Sharpe Ratio</button> -->
-									<!-- <button id="1" type="button">Optimize Returns</button> -->
 								</div>
+								<div class="chart-container" style="position: relative; width: 100%; height: 40%; min-height: 200px;">
+									<canvas id="totalReturns""></canvas>
+								</div>
+								<!-- <button id="0" type="button">Optimize Sharpe Ratio</button> -->
+								<!-- <button id="1" type="button">Optimize Returns</button> -->
 							</div>
             					</div>
 					</div>
@@ -202,9 +204,9 @@ body, body p {
 			 ];
 		var y1 = [null, null, null, null, '10.09', '2.70', '-4.17', '0.49', '15.14', '-2.96', '5.80', '17.56', '17.16', '17.01', '34.88'];
 		var y2 = ['51.69', '13.11', '3.78', '-55.24', '37.11', '14.75', '-21.25', '27.08', '18.05', '-53.41', '58.51', '37.58', '25.09', '17.30', '35.93'];
-		var y3 = ['0', '51.69', '71.58', '78.06', '-20.3', '9.28', '25.4', '-1.25', '25.49', '48.14', '-30.98', '9.4', '50.52', '88.28', '120.85'];
+		var y3 = [null, null, null, null, '10.09', '13.06', '8.35', '8.88', '25.36', '21.65', '28.71', '51.31', '77.27', '107.43', '179.78'];
 		var y1_alt = ['50', '-20', '40', '30', '15', '20', '50', '-20', '40', '30', '15', '20', '50', '-20', '40', '30'];
-		var y2_alt = ['-56', '81', '-73', '6', '7', '60', '-56', '81', '-73', '6', '7', '60', '-56', '81', '-73', '6'];
+		var y2_alt = ['310.27', '-20.03', '-21.12', '-55.97', '34.87', '-34.61', '-51.05', '30.30', '14.29', '-51.30', '54.52', '-8.76', '35.77', '-38.38', '39.49'];
 		var y3_alt = ['20', '-10', '10', '60', '150', '250', '20', '-10', '10', '60', '150', '250', '20', '-10', '10', '60'];
 		var eventProfits = new Chart(document.getElementById('eventProfits').getContext('2d'), {
 		    type: 'bar',  // <-- define overall chart type
@@ -224,7 +226,8 @@ body, body p {
 			backgroundColor: "rgba(0, 0, 0, 0.2)",
 			borderColor: "rgba(0, 0, 0, 0.2)",
 			data: y2,
-			yAxisID: 'right-axis'
+			yAxisID: 'left-axis'
+			// yAxisID: 'right-axis'
 		      }]
 		    },
 		    options: {
@@ -242,11 +245,12 @@ body, body p {
 			  display: true,
 			  position: 'left',
 			  scaleLabel: {display: true, labelString: '%'},
-		          ticks: {min: -50, max: 50}
+		          ticks: {min: -80, max: 80}
 			},{
 			  type:'linear',
 			  id:'right-axis',
-			  display: true,
+			  // display: true,
+			  display: false,
 			  position: 'right',
 			  stacked:false,
 			  scaleLabel: {display: true, labelString: '%'},
