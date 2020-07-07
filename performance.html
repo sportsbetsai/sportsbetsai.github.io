@@ -126,8 +126,8 @@ body, body p {
 							</div>
                                 			<div class="row" style="height: 600px">
 								<div class="chart-container" style="position: relative; width: 100%; height: 50%; min-height: 200px; max-height: 500px">
-									<canvas id="eventProfits"></canvas>
-									<canvas id="totalReturns"></canvas>
+									<canvas id="eventProfits" style="background-color: #f7f7f7;"></canvas>
+									<canvas id="totalReturns" style="background-color: #f7f7f7;"></canvas>
 									<button id="0" type="button">Optimize Sharpe Ratio</button>
 									<button id="1" type="button">Optimize Returns : Downside Risk Ratio</button>
 								</div
@@ -184,13 +184,29 @@ body, body p {
 	<!--<![endif]-->
 	
 	<script type="text/javascript">
-		var x  = ['UFC1', 'UFC on ESPN 7', 'UFC 254', 'UFC Fight Night 184', 'UFC Fight Night 238', 'UFC 356'];
-		var y1 = ['99.83', '99.86', '99.81', '99.83', '99.72', '99.75'];
-		var y2 = ['56', '-41', '-53', '46', '70', '-60'];
-		var y3 = ['10', '8', '16', '25', '70', '60'];
-		var y1_alt = ['50', '-20', '40', '30', '15', '20'];
-		var y2_alt = ['-56', '81', '-73', '6', '7', '60'];
-		var y3_alt = ['20', '-10', '10', '60', '150', '250'];
+		var x  = ['UFC 246: McGregor vs. Cowboy',
+			  'UFC Fight Night: Blaydes vs. dos Santos',
+			  'UFC 247: Jones vs. Reyes',
+			  'UFC Fight Night: Anderson vs. Błachowicz 2',
+			  'UFC Fight Night: Felder vs. Hooker',
+			  'UFC Fight Night: Benavidez vs. Figueiredo',
+			  'UFC 248: Adesanya vs. Romero',
+			  'UFC Fight Night: Lee vs. Oliveira',
+			  'UFC 249: Ferguson vs. Gaethje',
+			  'UFC Fight Night: Smith vs. Teixeira',
+			  'UFC on ESPN: Overeem vs. Harris',
+			  'UFC on ESPN: Woodley vs. Burns',
+			  'UFC 250: Nunes vs. Spencer',
+			  'UFC on ESPN: Eye vs. Calvillo',
+			  'UFC on ESPN: Blaydes vs. Volkov',
+			  'UFC on ESPN: Poirier vs. Hooker'
+			 ];
+		var y1 = ['83', '86', '81', '83', '-72', '75', '83', '86', '81', '83', '-72', '75', '83', '86', '81', '83'];
+		var y2 = ['56', '-41', '-53', '46', '70', '-60', '56', '-41', '-53', '46', '70', '-60', '56', '-41', '-53', '46'];
+		var y3 = ['10', '8', '16', '25', '70', '60', '10', '8', '16', '25', '70', '60', '10', '8', '16', '25'];
+		var y1_alt = ['50', '-20', '40', '30', '15', '20', '50', '-20', '40', '30', '15', '20', '50', '-20', '40', '30'];
+		var y2_alt = ['-56', '81', '-73', '6', '7', '60', '-56', '81', '-73', '6', '7', '60', '-56', '81', '-73', '6'];
+		var y3_alt = ['20', '-10', '10', '60', '150', '250', '20', '-10', '10', '60', '150', '250', '20', '-10', '10', '60'];
 		var eventProfits = new Chart(document.getElementById('eventProfits').getContext('2d'), {
 		    type: 'bar',  // <-- define overall chart type
 		    data: {
@@ -199,15 +215,15 @@ body, body p {
 			type:'line',
 			label: 'rolling 5 event average return',
 			fill:false,
-			backgroundColor: 'rgb(255, 99, 132)',
-			borderColor: 'rgb(255, 99, 132)',
+			backgroundColor: "#8e5ea2",
+			borderColor: "#8e5ea2",
 			data: y1,
 			yAxisID: 'left-axis'
 		      }, {
 			label: 'event return',
 			fill: true,
-			backgroundColor: 'rgb(54, 162, 235)',
-			borderColor: 'rgb(54, 162, 235)',
+			backgroundColor: "rgba(0, 0, 0, 0.2)",
+			borderColor: "rgba(0, 0, 0, 0.2)",
 			data: y2,
 			yAxisID: 'right-axis'
 		      }]
@@ -226,7 +242,8 @@ body, body p {
 			  id:'left-axis',
 			  display: true,
 			  position: 'left',
-			  scaleLabel: {display: true, labelString: '%'}
+			  scaleLabel: {display: true, labelString: '%'},
+		          ticks: {min: -100, max: 100}
 			},{
 			  type:'linear',
 			  id:'right-axis',
@@ -234,7 +251,8 @@ body, body p {
 			  position: 'right',
 			  stacked:false,
 			  scaleLabel: {display: true, labelString: '#'},
-			  gridLines: {drawOnChartArea:false}
+			  gridLines: {drawOnChartArea:false},
+			  ticks: {min: -100, max: 100}
 			}]
 		      }
 		    }
@@ -246,8 +264,8 @@ body, body p {
 		      datasets: [{
 			label: 'total return',
 			fill:false,
-			backgroundColor: 'rgb(255, 99, 132)',
-			borderColor: 'rgb(255, 99, 132)',
+			backgroundColor: "#3e95cd",
+			borderColor: "#3e95cd",
 			data: y3,
 		      }]
 		    },
@@ -264,7 +282,8 @@ body, body p {
 			  type:'linear',
 			  display: true,
 			  position: 'left',
-			  scaleLabel: {display: true, labelString: '%'}
+			  scaleLabel: {display: true, labelString: '%'},
+			  ticks: {min: 0, max: 250}
 			}]
 		      }
 		    }
