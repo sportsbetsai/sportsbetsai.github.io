@@ -276,7 +276,12 @@ body, body p {
 		      tooltips: {mode: 'index', intersect: false},
 		      hover: {mode: 'nearest', intersect: true},
 		      scales: {
-			xAxes: [{display: true, maxRotation: 90, minRotation: 90, scaleLabel: {display: false, labelString: 'event'}}],
+			xAxes: [{
+				display: true,
+				afterCalculateTickRotation : function (self) {
+					self.labelRotation = 90; //Or any other rotation of x-labels you need.
+				},
+				scaleLabel: {display: false, labelString: 'event'}}],
 			yAxes: [{
 			  type:'linear',
 			  display: true,
