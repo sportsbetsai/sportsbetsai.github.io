@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:site_name" content="SportsBets.AI">
 <meta property="og:title" content="SportsBets.AI" />
-<meta property="og:description" content="Artificial intelligence driven predictions of sports winning odds" />
+<meta property="og:description" content="Artificial intelligence driven predictions of sports betting odds" />
 <meta property="og:image" itemprop="image" content="media/oddsboard-sq.jpg">
 <meta property="og:type" content="website" />
 <meta property="og:updated_time" content="1586917166" />
@@ -179,43 +179,43 @@ body, body p {
     </div>
     
 </section>
-                    <section id="works"  class="section-services section-padding section-meta onepage-section">                        <div class="container">
-                                <div class="section-title-area">
-                    <h5 class="section-subtitle">Our Data</h5>                    <h2 class="section-title">How it works</h2>                                    </div>
-                                <div class="row">
-                                                <div class="col-sm-6 col-lg-6 wow slideInUp">
-                                <div class="service-item ">
-                                                                                                            <div class="service-image"><i class="fa fa fa-files-o fa-5x"></i></div>                                    <div class="service-content">
-                                        <h4 class="service-title">Scraping</h4>
-                                        <p>We generally cover sports with public APIs or scrape-able datastores for two important data sources: (1) statistics and reference data, and (2) historical betting odds. (1) guarantees that we have a rich list of base signals to train our models. (2) allows us to backtest the performance of our models. We&#8217;ve built custom scrapers to interact with these APIs or crawl datastores for each sport market that we cover. These scrapers run nightly to pick up new data.</p>
-                                    </div>
-                                </div>
-                            </div>
-                                                        <div class="col-sm-6 col-lg-6 wow slideInUp">
-                                <div class="service-item ">
-                                                                                                            <div class="service-image"><i class="fa fa fa-key fa-5x"></i></div>                                    <div class="service-content">
-                                        <h4 class="service-title">Magic Data</h4>
-                                        <p>Bookmakers will make odds based on recent &#8216;feelings&#8217; about players and teams. We make a good attempt to data-ify these feelings via a further step of data collection, where we aggregate data across multiple news, social media, and sports blogging platforms. These data are then transformed into numeric scores or enumeration levels and fed into our model.</p>
-                                    </div>
-                                </div>
-                            </div>
-                                                        <div class="col-sm-6 col-lg-6 clearleft wow slideInUp">
-                                <div class="service-item ">
-                                                                                                            <div class="service-image"><i class="fa fa fa-sitemap fa-5x"></i></div>                                    <div class="service-content">
+<section id="works"  class="section-services section-padding section-meta onepage-section">
+	<div class="container">
+		<div class="section-title-area"><h5 class="section-subtitle">Our Data</h5><h2 class="section-title">How it works</h2></div>
+		<div class="row">
+			<div class="col-sm-6 col-lg-6 wow slideInUp">
+				<div class="service-item ">
+					<div class="service-image"><i class="fa fa fa-files-o fa-5x"></i></div><div class="service-content">
+					<h4 class="service-title">Scraping</h4>
+					<p>We scrape nightly over several important sources of data for every sport that we predict for: (1) base statistics and reference data about teams and players, (2) auxilliary data, such as expert picks, social media, and latest news, and (3) historical betting odds and odds trends.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-6 clearleft wow slideInUp">
+				<div class="service-item ">
+					<div class="service-image"><i class="fa fa fa-sitemap fa-5x"></i></div><div class="service-content">
                                         <h4 class="service-title">Machine Learning</h4>
-                                        <p>After a fair amount of cleaning and feature engineering, we transform our raw data into meaningful signals. In general, for each sport we will have between 100 &#8211; 500 such signals. We then train logistic models to predict the win percentages per game. The great majority of our models are neural networks, but occasionally we have also used boosted gradient decision trees. At this stage we tune some model hyperparameters for optimal performance.</p>
-                                    </div>
-                                </div>
-                            </div>
-                                                        <div class="col-sm-6 col-lg-6 wow slideInUp">
+                                        <p>We clean our scraped data transform our raw data into meaningful signals through feature engineering. In general, for each sport we will have between 100 &#8211; 1000 predictive signals. We then train machine-learning logistic models for winning probabilities. The majority of our models boosted gradient decision trees, but occasionally we will also use deep neural networks.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-lg-6 wow slideInUp">
                                 <div class="service-item ">
-                                                                                                            <div class="service-image"><i class="fa fa fa-percent fa-5x"></i></div>                                    <div class="service-content">
+					<div class="service-image"><i class="fa fa fa-percent fa-5x"></i></div><div class="service-content">
                                         <h4 class="service-title">Backtest &#038; Trade</h4>
                                         <p>Once we have our predicted odds, we can compare them with odds from various bookmakers, and we make trades on games with highest differences. We have backtests of model performance over the course of the most recent 12 months. We do not optimise our model to backtest performance nor do we train over this period of data. We also have statistics on our real trading revenue; if interested, please contact us directly for that.</p>
-                                    </div>
+					</div>
                                 </div>
-                            </div>
-                                            </div>
+			</div>
+			<div class="col-sm-6 col-lg-6 wow slideInUp">
+                                <div class="service-item ">
+					<div class="service-image"><i class="fa fa fa-key fa-5x"></i></div><div class="service-content">
+                                        <h4 class="service-title">Magic Data</h4>
+                                        <p>Bookmakers will make odds based on recent &#8216;feelings&#8217; about players and teams. We make a good attempt to data-ify these feelings via a further step of data collection, where we aggregate data across multiple news, social media, and sports blogging platforms. These data are then transformed into numeric scores or enumeration levels and fed into our model.</p>
+					</div>
+                                </div>
+			</div>
+		</div>
             </div>
                             </section>
             <section id="section-cta"  class="section-cta section-padding section-inverse onepage-section">
